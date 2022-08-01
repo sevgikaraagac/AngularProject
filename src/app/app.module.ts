@@ -11,6 +11,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { CustomerDashbordComponent } from './pages/customer-dashbord/customer-dashbord.component';
+import { UpdateCustomerComponent } from './pages/update-customer/update-customer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { RegisterComponent } from './pages/register/register.component';
     NavbarComponent,
     ProductCardComponent,
     CategoryListComponent,
-    RegisterComponent
+    RegisterComponent,
+    CustomerDashbordComponent,
+    UpdateCustomerComponent
   ],
   imports: [
     BrowserModule,

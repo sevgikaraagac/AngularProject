@@ -17,8 +17,6 @@ export class RegisterComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, private customerService:CustomersService) { }
 
   ngOnInit(): void {
-    
-
     this.createRegisterForm();
   }
   createRegisterForm():void{
@@ -26,17 +24,16 @@ export class RegisterComponent implements OnInit {
     this.registerForm=this.formBuilder.group(
     {
       companyName: ["",//default değer//
-   Validators.required],
-  contactName: ["", [Validators.required, Validators.minLength(2)]],
-  contactTitle: ["", Validators.required],
-  street: ["", Validators.required],
-  city: ["", Validators.required],
-  region: ["", Validators.required],
-  postalCode: ["", Validators.required],
-  country: ["", Validators.required],
-  phone: ["", Validators.required],
-  customerKey: ["", Validators.required]
-
+      Validators.required],
+      contactName: ["", [Validators.required, Validators.minLength(2)]],
+      contactTitle: ["", Validators.required],
+      street: ["", Validators.required],
+      city: ["", Validators.required],
+      region: ["", Validators.required],
+      postalCode: ["", Validators.required],
+      country: ["", Validators.required],
+      phone: ["", Validators.required],
+      customerKey: ["", Validators.required]
     }
 
   );
@@ -48,23 +45,16 @@ export class RegisterComponent implements OnInit {
       console.warn('Gerekli alanları doldurunuz');
       return;
     }
-
-
     const customer:Customer={
-
       ...this.registerForm.value,
       city:this.registerForm.value.city.toUpperCase()
 
       // companyName: this.registerForm.get('companyName')!.value,
       // contactName: this.registerForm.get('contactName')!.value,
     }
-
     this.customerService.add(customer).subscribe(response =>{
       console.info(response);
-    }
-      )
-
-    // console.log(this.registerForm.value);
+    })
 
   }
 

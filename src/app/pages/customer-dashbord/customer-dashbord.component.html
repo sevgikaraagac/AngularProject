@@ -1,0 +1,42 @@
+<button type="button" class="btn btn-primary mb-5" routerLink="/register">Add Customer</button>
+
+<table class="table table-primary">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Contact Name</th>
+        <th scope="col">Contact Title</th>
+        <th scope="col">Street</th>
+        <th scope="col">City</th>
+        <th scope="col">Region</th>
+        <th scope="col">Postal Code</th>
+        <th scope="col">Country</th>
+        <th scope="col">Phone</th>
+        <th scope="col">customerKey</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customerList">
+        <th scope="row">{{c.id}}</th>
+        <td>{{c.companyName}}</td>
+        <td>{{c.contactName}}</td>
+        <td>{{c.contactTitle}}</td>
+        <td>{{c.street}}</td>
+        <td>{{c.city}}</td>
+        <td>{{c.region}}</td>
+        <td>{{c.postalCode}}</td>
+        <td>{{c.country}}</td>
+        <td>{{c.phone}}</td>
+        <td>{{c.customerKey}}</td>
+        <td>
+          <button type="button" (click)="deleteCustomer(c.id)" class="btn btn-primary mb-5">Delete</button>
+        </td>
+        <td>
+          <button type="button"  class="btn btn-primary mb-5" [routerLink]="['/dashbord/customer', c.id]">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-danger mb-5" routerLink="/dashboard/product/add">Add Product</button>
+
+<table  class="table table-primary">
+    <thead>
+      <tr >
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Supplier Id</th>
+        <th scope="col">Category Id </th>
+        <th scope="col">Quantity Per Unit</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Units In Stock</th>
+        <th scope="col">Units On Order</th>
+        <th scope="col">Reorder Level</th>
+        <th scope="col">Discontinued</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productList">
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.supplierId}}</td>
+        <td>{{p.categoryId}}</td>
+        <td>{{p.quantityPerUnit}}</td>
+        <td>{{p.unitPrice}}</td>
+        <td>{{p.unitsInStock}}</td>
+        <td>{{p.unitsOnOrder}}</td>
+        <td>{{p.reorderLevel}}</td>
+        <td>{{p.discontinued}}</td>
+        <td>{{p.name}}</td>
+        <td>
+          <button type="button" [routerLink]="['/dashboard/product', p.id]" class="btn btn-danger">Edit</button>
+        </td>
+        <td>
+          <button type="button" (click)="deleteProduct(p.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

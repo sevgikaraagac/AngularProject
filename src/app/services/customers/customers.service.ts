@@ -27,10 +27,11 @@ update(customer:Customer):Observable<Customer>{
   return this.httpClient.put<Customer>(this.apiControllerUrl + `/${customer.id}`, customer);
 }
 
-getById(id:number):Observable<Customer>{
-  return this.httpClient.get<Customer>(`${this.apiControllerUrl}/${id}`);
+  getCustomerById(id:number):Observable<Customer>{
+    return this.httpClient.get<Customer>(`${this.apiControllerUrl}/${id}`)
+  }
 }
 
 
-}
+
 

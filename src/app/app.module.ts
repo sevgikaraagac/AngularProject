@@ -11,8 +11,12 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { CustomerDashbordComponent } from './pages/customer-dashbord/customer-dashbord.component';
 import { UpdateCustomerComponent } from './pages/update-customer/update-customer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
+import { UpdateProductComponent } from './pages/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -24,15 +28,22 @@ import { UpdateCustomerComponent } from './pages/update-customer/update-customer
     ProductCardComponent,
     CategoryListComponent,
     RegisterComponent,
-    CustomerDashbordComponent,
-    UpdateCustomerComponent
+    UpdateCustomerComponent,
+    DashboardComponent,
+    ProductDashboardComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+    
+    
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

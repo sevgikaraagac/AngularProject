@@ -1,4 +1,4 @@
-<form [formGroup]="updateForm" *ngIf="customer">
+<form *ngIf="customerForm" [formGroup]="customerForm" (ngSubmit)="save()">
 
     <div class="mb-3">
         <label for="companyName" class="form-label">Company Name</label>
@@ -49,10 +49,7 @@
         <label for="customerKey" class="form-label">Customer Key</label>
         <input type="text" formControlName="customerKey" class="form-control" id="customerKey" placeholder="" />
       </div>
-        <div class="mb-3">
-            <button (click)="updateCustomer()" class="btn btn-primary">
-            Update Customer
-        </button></div>
+      <div class="mb-3"><button type="submit" class="btn btn-warning">Save</button></div>
 
 </form>
 

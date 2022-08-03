@@ -1,10 +1,12 @@
 <p>Sepetinizde {{cartItems.length}} ürün var</p>
 
+<input class="form-control mb-5" [(ngModel)]="filterText" type="search" placeholder="Search" aria-label="Search">
+  
   <ng-template [ngIf]="productList" [ngIfElse]="loading">
 
   <ng-template [ngIf]="productList.length>0" [ngIfElse]="alert">
     <div class="row">
-        <div class="col-4" *ngFor="let p of productList">
+        <div class="col-4" *ngFor="let p of productList | filterProduct:filterText">
            <etiya-product-card (onBtnClick)="addToCart($event)" [product]="p"></etiya-product-card>
         </div>
     </div>

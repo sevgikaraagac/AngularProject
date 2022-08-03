@@ -17,6 +17,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
 import { UpdateProductComponent } from './pages/update-product/update-product.component';
+import { KdvPipe } from './pipes/kdv/kdv.pipe';
+import { SaleDirective } from './directives/sale/sale.directive';
+import { ChangeProductCardDirective } from './directives/changeProductCard/change-product-card.directive';
+import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { UpdateProductComponent } from './pages/update-product/update-product.co
     UpdateCustomerComponent,
     DashboardComponent,
     ProductDashboardComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    KdvPipe,
+    SaleDirective,
+    ChangeProductCardDirective,
+    FilterProductPipe
   ],
   imports: [
     BrowserModule,

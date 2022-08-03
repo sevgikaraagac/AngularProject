@@ -10,6 +10,8 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class ProductListComponent implements OnInit {
 
+  filterText:string="";
+
   productList!:Product[];
   cartItems:any[]=[];
   //httpClient!:HttpClient;

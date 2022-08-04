@@ -21,6 +21,9 @@ import { KdvPipe } from './pipes/kdv/kdv.pipe';
 import { SaleDirective } from './directives/sale/sale.directive';
 import { ChangeProductCardDirective } from './directives/changeProductCard/change-product-card.directive';
 import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
+import { IfNotDirective } from './directives/ifNot/if-not.directive';
+import { MultipleDirective } from './directives/multiple/multiple.directive';
+import { AppWelcomeDirective } from './directives/appWelcome/app-welcome.directive';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
     KdvPipe,
     SaleDirective,
     ChangeProductCardDirective,
-    FilterProductPipe
+    FilterProductPipe,
+    IfNotDirective,
+    MultipleDirective,
+    AppWelcomeDirective
   ],
   imports: [
     BrowserModule,

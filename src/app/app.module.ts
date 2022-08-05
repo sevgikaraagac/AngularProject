@@ -2,50 +2,30 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { UpdateCustomerComponent } from './pages/update-customer/update-customer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
-import { UpdateProductComponent } from './pages/update-product/update-product.component';
-import { KdvPipe } from './pipes/kdv/kdv.pipe';
-import { SaleDirective } from './directives/sale/sale.directive';
-import { ChangeProductCardDirective } from './directives/changeProductCard/change-product-card.directive';
-import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
-import { IfNotDirective } from './directives/ifNot/if-not.directive';
-import { MultipleDirective } from './directives/multiple/multiple.directive';
-import { AppWelcomeDirective } from './directives/appWelcome/app-welcome.directive';
+import { ProductsModule } from './features/products/products.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './core/auth/auth.module';
+import { CustomersModule } from './features/customers/customers.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
     AddProductComponent,
     HomepageComponent,
     NavbarComponent,
-    ProductCardComponent,
     CategoryListComponent,
     RegisterComponent,
-    UpdateCustomerComponent,
-    DashboardComponent,
-    ProductDashboardComponent,
-    UpdateProductComponent,
-    KdvPipe,
-    SaleDirective,
-    ChangeProductCardDirective,
-    FilterProductPipe,
-    IfNotDirective,
-    MultipleDirective,
-    AppWelcomeDirective
+
   ],
   imports: [
     BrowserModule,
@@ -54,8 +34,12 @@ import { AppWelcomeDirective } from './directives/appWelcome/app-welcome.directi
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
-    
+    ToastrModule.forRoot(),
+    ProductsModule,
+    CoreModule,
+    SharedModule,
+    AuthModule,
+    CustomersModule
     
   
   ],

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddProductComponent } from './pages/add-product/add-product.component';
-import { HomepageComponent } from './pages/homepage/homepage.component';
+import { LoginGuard } from './core/auth/guards/login-guard/login-guard.guard';
+import { AddProductComponent } from './features/products/pages/add-product/add-product.component';
+import { HomepageComponent } from './shared/pages/homepage/homepage.component';
 
 
 
 const routes: Routes = [
   {path:'', redirectTo:'homepage', pathMatch:'full'},
-  {path:'homepage', component: HomepageComponent, pathMatch:'full'},
-  {path:'add-product', component: AddProductComponent, pathMatch:'full'},
+  {path:'add-product', component: AddProductComponent, canActivate:[LoginGuard]},
 
 ];
 

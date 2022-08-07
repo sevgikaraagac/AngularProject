@@ -26,9 +26,6 @@ import { CoreModule } from 'src/app/core/core.module';
     FilterProductPipe,
     KdvPipe,
     ChangeProductCardDirective,
-   
-    
-    
   ],
   imports: [
     CommonModule,

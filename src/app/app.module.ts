@@ -12,6 +12,7 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './core/auth/auth.module';
 import { CustomersModule } from './features/customers/customers.module';
 import { SharedModule } from './shared/shared.module';
+import { CartModule } from './features/cart/cart.module';
 
 
 @NgModule({
@@ -33,9 +34,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AuthModule,
     CustomersModule,
-
-    
-  
+    CartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

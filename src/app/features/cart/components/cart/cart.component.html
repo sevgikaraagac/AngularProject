@@ -1,0 +1,12 @@
+<li *ngIf="cartItem" class="btn-group" style="padding-right:10px;">
+    <a class="btn btn-success dropdown-toggle" id="navbar-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cart</a>
+    <ul class="dropdown-menu">
+        <li *ngFor="let c of cartItem">
+            <a class="dropdown-item">
+                <span>{{c.quantity}}</span>
+                {{c.product.name}}
+                <span> <button class="btn btn-danger" (click)="removeItem(c)">Delete</button></span>
+            </a>          
+        </li>
+    </ul>
+</li>

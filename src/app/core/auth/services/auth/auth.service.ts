@@ -52,6 +52,9 @@ export class AuthService {
 
     return true;
   }
+  logOut(){
+    return this.localStorageService.remove('token');
+  }
 
   setTokenUserModel(tokenUserModel: TokenUserModel) {
     this.store.dispatch(setTokenUserModel({ tokenUserModel })); // tokenUserModel -> tokenUserModel:tokenUserModel ile aynı

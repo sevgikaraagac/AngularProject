@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartServiceService } from 'src/app/features/cart/services/carts/cart-service.service';
 import { Product } from 'src/app/features/products/models/product';
 
 @Component({
@@ -14,12 +15,15 @@ export class ProductCardComponent implements OnInit {
   onMouseColor:string='yellow';
   onSaleText:string="İndirim!!!"
 
-  constructor() { }
+  constructor(private cartService:CartServiceService) { }
 
   ngOnInit(): void { }
   
   addToCartEvent(){
     this.onBtnClick.emit(this.product);
+    this.cartService.CartItems={product:this.product, quantity:1}
   }
+
+  
 
 }

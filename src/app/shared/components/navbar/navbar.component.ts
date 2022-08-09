@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
     this.tokenUserModel$ = this.authService.tokenUserModel$;
   }
 
+
   ngOnInit(): void {}
 
   testAuth() {
@@ -23,4 +24,12 @@ export class NavbarComponent implements OnInit {
       console.log(response);
     });
   }
+  isLoggedIn(){
+    return this.authService.isAuthenticated
+  }
+  logOut(){
+    this.authService.logOut();
+  }
+
+
 }

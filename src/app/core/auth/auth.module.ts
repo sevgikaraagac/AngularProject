@@ -9,6 +9,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { tokenGetter } from './services/auth/auth.service';
+import { authReducer } from './store/reducers/auth.reducer';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [LoginPageComponent],
@@ -23,7 +25,8 @@ import { tokenGetter } from './services/auth/auth.service';
         allowedDomains: [environment.apiURL],
         disallowedRoutes: []
       }
-    })
+    }),
+    StoreModule.forRoot(authReducer)
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
 })

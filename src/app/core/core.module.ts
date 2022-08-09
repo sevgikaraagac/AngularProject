@@ -4,6 +4,8 @@ import { CoreRoutingModule } from './core-routing.module';
 import { IfNotDirective } from './directives/ifNot/if-not.directive';
 import { AuthModule } from './auth/auth.module';
 import { StorageModule } from './storage/storage.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorHandlingInterceptor } from './auth/intercepters/error-handling/error-handling.interceptor';
 
 
 @NgModule({
@@ -16,6 +18,9 @@ import { StorageModule } from './storage/storage.module';
     AuthModule,
     StorageModule
   ],
-  exports:[IfNotDirective]
+  exports:[IfNotDirective],
+  providers:[
+    {provide: HTTP_INTERCEPTORS, useClass:ErrorHandlingInterceptor, multi:true}
+  ]
 })
 export class CoreModule { }

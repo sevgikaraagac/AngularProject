@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" routerLink="">{{ (tokenUserModel$ | async)?.userName }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,6 +12,18 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLink="/add-product" routerLinkActive="active">Add Product</a>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+              Dashboards
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" aria-current="page" routerLink="/dashboard/customers" routerLinkActive="active">Customer Dashbord</a></li>
+              <li><a class="dropdown-item" aria-current="page" routerLink="/dashboard/products" routerLinkActive="active">Product Dashbord</a></li>
+            </ul>
+          
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" aria-current="page" routerLink="/login" routerLinkActive="active"
               >Login</a
@@ -19,12 +31,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" (click)="testAuth()">Test Auth</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/dashboard/customers" routerLinkActive="active">Dashbord</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/dashboard/products" routerLinkActive="active">Product Dashbord</a>
           </li>
         </ul>
         <form class="d-flex" role="search">

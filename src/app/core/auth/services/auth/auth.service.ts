@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 import { UserForLoginModel } from '../../models/userForLoginModel';
 import { UserLoginResponseModel } from '../../models/userLoginResponseModel';
 import { environment } from 'src/environments/environment';
-import { setTokenUserModel } from '../../store/actions/auth.actions';
+import { removeTokenUserModel, setTokenUserModel } from '../../store/actions/auth.actions';
 import { TokenUserModel } from '../../models/tokenUserModel';
 
 @Injectable({
@@ -52,8 +52,15 @@ export class AuthService {
 
     return true;
   }
+
+
+  removeTokenUserModel(){
+    this.store.dispatch(removeTokenUserModel());
+  }
+
   logOut(){
     return this.localStorageService.remove('token');
+    this.removeTokenUserModel();
   }
 
   setTokenUserModel(tokenUserModel: TokenUserModel) {

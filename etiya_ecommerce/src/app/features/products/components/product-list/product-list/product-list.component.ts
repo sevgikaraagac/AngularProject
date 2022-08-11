@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../../models/product';
 import { ProductsService } from '../../../services/products.service';
 
@@ -8,6 +8,7 @@ import { ProductsService } from '../../../services/products.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  @Input() categoryId!:number;
   productList!:Product[];
 
   constructor(private productService:ProductsService) { }

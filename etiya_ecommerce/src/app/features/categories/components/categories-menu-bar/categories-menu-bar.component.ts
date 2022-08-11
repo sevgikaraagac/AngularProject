@@ -1,5 +1,6 @@
 
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MegaMenuItem } from 'primeng/api';
 import { Category } from '../../models/category';
 import { CategoriesService } from '../../services/categories/categories.service';
@@ -42,7 +43,11 @@ export class CategoriesMenuBarComponent implements OnInit {
         queryParams: { categoryId: category.id},
     };
   })
+  this.items.unshift({
+    label:'All',
+    routerLink:[''],
 
+  })
+  
   }
-
 }

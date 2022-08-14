@@ -5,13 +5,15 @@ import { FooterComponent } from './components/footer/footer/footer.component';
 import { ServicesModule } from '../features/services/services.module';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   exports:[
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardLayoutComponent
   ]
 })
 export class SharedModule { }

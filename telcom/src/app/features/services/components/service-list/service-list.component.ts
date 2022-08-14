@@ -11,6 +11,10 @@ import { ToastrService } from 'ngx-toastr';
 export class ServiceListComponent implements OnInit {
   services!:Service[];
 
+  pageNumber:number=0;
+  servicesInPage!:Service[];
+  ServicesArray:number[]=[];
+
   constructor(private serviceService:ServicesService,  private toastr: ToastrService,) { }
 
   ngOnInit(): void {
@@ -19,8 +23,18 @@ export class ServiceListComponent implements OnInit {
 
   getList(){
     this.serviceService.getList().subscribe(response => {
-      this.services=response
+      this.servicesInPage=response;
+      let data=Math.ceil(response.length/5);
+      for(let i=1;i<=data;i++){
+        this.ServicesArray.push(i)
+      }
+      this.fillData(1);
     })
+  }
+
+  fillData(index:number){
+    this.services=this.servicesInPage.slice((index-1)*5, 5*index)
+    this.pageNumber=index;
   }
 
   deleteService(serviceId:number){

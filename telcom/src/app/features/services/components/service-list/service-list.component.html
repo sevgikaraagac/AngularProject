@@ -1,49 +1,64 @@
+<div class="container">
+  <div [ngSwitch]="fetchStatus">
 
-<div  class="container m ">
-<div>
-    <p-toolbar  styleClass="p-mb-4">
+    <div *ngSwitchCase="'loaded'">
+      <p-toolbar styleClass="p-mb-4">
         <ng-template pTemplate="right">
-            <button pButton pRipple label="Add" icon="pi pi-plus" [routerLink]="['/services/add']" class="p-button-success p-mr-2"></button>      
+          <button pButton pRipple label="Add" icon="pi pi-plus" [routerLink]="['/services/add']"
+            class="p-button-success p-mr-2"></button>
         </ng-template>
-    </p-toolbar>
+      </p-toolbar>
 
-<table  class="table table-striped " >
-    <thead style =" height: 50px;" class="thead-dark">
-      <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Name</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let s of services">
-        <td>{{s.id}}</td>
-        <td>{{s.name}}</td>
-        <td style="display: flex; justify-content: end;">
-            <button [routerLink]="['/services/add', s.id]" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" ></button>
-            <button  (click)="deleteService(s.id)" style="margin-left: 10px;" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" ></button>
-        </td>
-      </tr>
- 
-    </tbody>
-  </table>
-</div>
-</div>
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-       <li *ngIf="pageNumber>1" (click)="pageNumber=pageNumber-1; fillData(pageNumber)" class="page-item"><a class="page-link">Previous</a></li>
+      <table class="table table-striped ">
+        <thead style=" height: 50px;" class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of services">
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td style="display: flex; justify-content: end;">
+              <button [routerLink]="['/services/add', s.id]" pButton pRipple icon="pi pi-pencil"
+                class="p-button-rounded p-button-success p-mr-2"></button>
+              <button (click)="deleteService(s.id)" style="margin-left: 10px;" pButton pRipple icon="pi pi-trash"
+                class="p-button-rounded p-button-warning"></button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li *ngIf="pageNumber>1" (click)="pageNumber=pageNumber-1; fillData(pageNumber)" class="page-item"><a
+              class="page-link">Previous</a></li>
       
-        <li class="page-item" *ngFor="let index of ServicesArray" ><a class="page-link" (click)="fillData(index);" >{{index}}</a></li>
-
-      <li *ngIf="pageNumber<services.length" (click)="pageNumber=pageNumber+1; fillData(pageNumber)" class="page-item"><a class="page-link" >Next</a></li> 
-    </ul>
-  </nav>
-  <div>
-    <div style="margin-bottom:50px ;" >
-         In total there are {{services ? services.length : 0 }} services. 
+          <li class="page-item" *ngFor="let index of ServicesArray"><a class="page-link"
+              (click)="fillData(index);">{{index}}</a></li>
+      
+          <li *ngIf="pageNumber<services.length" (click)="pageNumber=pageNumber+1; fillData(pageNumber)" class="page-item"><a
+              class="page-link">Next</a></li>
+        </ul>
+      </nav>
+      <div style="margin-bottom:50px ;">
+        In total there are {{services ? total.length : 0 }} services.
+      </div>
+      <div>
+        Current Page:{{pageNumber}}
+      </div>
     </div>
-    <div>
-        Current Page:{{pageNumber}} 
-   </div>
+   
+
+    <ng-container *ngSwitchCase="'pending'">
+      <div>
+        <app-list-skeleton></app-list-skeleton>
+      </div>
+    </ng-container>
+    
+  </div>
+
 </div>
 

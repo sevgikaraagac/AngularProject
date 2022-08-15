@@ -17,8 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     FeaturesRoutingModule,
     ServicesModule,
     RouterModule,
-    SharedModule,
-   
+    SharedModule
   ],
   exports:[
     ServicesModule

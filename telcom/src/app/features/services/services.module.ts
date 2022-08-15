@@ -11,6 +11,10 @@ import { ButtonModule } from 'primeng/button';
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { CoreModule } from 'src/app/core/core.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+
 
 const primeNgModules=[DropdownModule, ToolbarModule, TableModule,	ButtonModule]
 
@@ -27,7 +31,9 @@ const primeNgModules=[DropdownModule, ToolbarModule, TableModule,	ButtonModule]
     ...primeNgModules,
     ReactiveFormsModule,
     FormsModule,
-    
+    SharedModule,
+    CoreModule,
+  
     
   ],
   exports:[ServiceListComponent]

@@ -5,6 +5,7 @@ import { HomepageComponent } from './common/pages/homepage/homepage/homepage.com
 import { ServicesModule } from './services/services.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
     FeaturesRoutingModule,
     ServicesModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   exports:[
     ServicesModule

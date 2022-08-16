@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { ListSkeletonComponent } from './components/list-skeleton/list-skeleton.component';
 import {SkeletonModule} from 'primeng/skeleton';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -23,7 +24,8 @@ import {SkeletonModule} from 'primeng/skeleton';
     
     FontAwesomeModule,
     RouterModule,
-    SkeletonModule
+    SkeletonModule,
+    CoreModule
   ],
   exports:[
     NavbarComponent,

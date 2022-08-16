@@ -57,7 +57,7 @@ export class AddServiceComponent implements OnInit {
     const service:Service = Object.assign({id:this.service.id}, this.serviceForm.value); 
     this.serviceService.update(service).subscribe(() => {
       setTimeout(() => {
-        this.router.navigateByUrl("/service/add");
+        this.router.navigateByUrl("/services");
          this.toastr.success("Service succesfully updated!","Update")
       }, 1000);
     });
@@ -74,6 +74,7 @@ export class AddServiceComponent implements OnInit {
 
     this.serviceService.add(service).subscribe(response =>{
       setTimeout(() => {
+        this.router.navigateByUrl("/services");
          this.toastr.success("Customer succesfully added!","Add")
       }, 1000);
     })

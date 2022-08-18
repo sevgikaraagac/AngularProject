@@ -8,7 +8,20 @@ import { LoadingInterceptor } from './interceptors/loading-interceptor.intercept
 import { LoginComponent } from './auth/pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StorageModule } from './storage/storage.module';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { LocalStorageService } from './storage/services/local-storage.service';
+import { StorageService } from './storage/services/storageService';
 
+
+export function jwtOptionsFactory(StorageService:StorageService){
+  return{
+    tokenGetter:() => {
+      return StorageService.get('token');
+    },
+    allowedDomains:['localhost:3000'],
+
+  };
+}
 
 @NgModule({
   declarations: [
@@ -20,7 +33,14 @@ import { StorageModule } from './storage/storage.module';
     CommonModule,
     CoreRoutingModule,
     ReactiveFormsModule,
-    StorageModule
+    StorageModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider:{
+        provide:JWT_OPTIONS,
+        useFactory:jwtOptionsFactory,
+        deps:[LocalStorageService]
+      },
+    }),
   ],
   exports:[
    LoadingOverlayComponent,

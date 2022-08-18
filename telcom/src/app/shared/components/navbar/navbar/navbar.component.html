@@ -27,7 +27,8 @@
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success me-2" type="submit">Search</button>
-          <button class="btn btn-success" routerLink="/login" type="submit">Login</button>
+          <button class="btn btn-success me-2" routerLink="/login" type="submit">Login</button>
+          <button class="btn btn-success" (click)="logOut()" type="submit">LogOut</button>
         </form>
       </div>
     </div>

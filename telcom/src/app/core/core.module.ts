@@ -5,16 +5,22 @@ import { CoreRoutingModule } from './core-routing.module';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from './interceptors/loading-interceptor.interceptor';
+import { LoginComponent } from './auth/pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StorageModule } from './storage/storage.module';
 
 
 @NgModule({
   declarations: [
   
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+       LoginComponent
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    ReactiveFormsModule,
+    StorageModule
   ],
   exports:[
    LoadingOverlayComponent,

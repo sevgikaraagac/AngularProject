@@ -39,7 +39,9 @@ export class AuthService {
       subject.next(response)
     });
 
+    this.router.navigateByUrl('');
     return subject.asObservable();
+    
 
   }
   saveToken(userLoginResponse: UserLoginResponse) {

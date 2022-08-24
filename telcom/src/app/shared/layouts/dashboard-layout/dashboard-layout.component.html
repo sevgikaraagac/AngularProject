@@ -1,15 +1,14 @@
 
-<header>
-<etiya-navbar></etiya-navbar>
-</header>
+<div class="min-vh-100 d-flex flex-column">
 
-<main>
-<div class="container">
+<etiya-navbar></etiya-navbar>
+
+<div class="container flex-fill">
     <router-outlet></router-outlet>
 </div>
-</main>
 
 <footer>
 <etiya-footer></etiya-footer>
 </footer>
+</div>
 <app-loading-overlay></app-loading-overlay>
